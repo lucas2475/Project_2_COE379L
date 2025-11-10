@@ -1,1 +1,4 @@
 *.h5
+.venv
+best_model.keras
+best_model.h5
