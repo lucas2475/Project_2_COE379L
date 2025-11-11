@@ -23,6 +23,11 @@ docker-compose logs -f
 docker-compose down
 ```
 
+### 2. or run with docker run
+```bash
+docker run -it --rm -p 5000:5000 hurricane-damage-classifier:latest
+```
+
 ### Full Simple Test workflow
 
 ```bash
