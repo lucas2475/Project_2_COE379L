@@ -36,7 +36,7 @@ sleep 5
 curl http://localhost:5000/summary
 
 # 4. Test inference endpoint (with an image)
-curl -X POST -F "image=@test_image.png" http://localhost:5000/inference
+curl -X POST -F "image=@test_image.jpeg" http://localhost:5000/inference
 
 # 5. View logs if something goes wrong
 docker-compose logs
