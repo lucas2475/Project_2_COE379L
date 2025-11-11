@@ -23,21 +23,28 @@ docker-compose logs -f
 docker-compose down
 ```
 
-### Full Test workflow
+### Full Simple Test workflow
 
 ```bash
 # 1. Start container
 docker-compose up -d
 
-# 2. Wait a few seconds for startup
-sleep 5
-
-# 3. Test summary endpoint
+# 2. Test summary endpoint
 curl http://localhost:5000/summary
 
-# 4. Test inference endpoint (with an image)
+# 3. Test inference endpoint (with an image)
 curl -X POST -F "image=@test_image.jpeg" http://localhost:5000/inference
 
-# 5. View logs if something goes wrong
+# 4. View logs if something goes wrong
 docker-compose logs
+```
+
+### Test with Grader
+
+```bash
+# 1. Check that container is still running
+docker ps
+
+# 2. Run shell script
+./start_grader.sh
 ```
