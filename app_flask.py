@@ -10,6 +10,8 @@ app = Flask(__name__)
 # Load the model once the server starts
 path = './best_model.keras' # TODO: need to update the path
 model = keras.models.load_model(path)
+print(f"Model output shape: {model.output_shape}")
+print(f"Last layer activation: {model.layers[-1].activation.__name__}")
 IMG_SIZE = (224, 224)
 
 # load the best model, have done the evaluation 
