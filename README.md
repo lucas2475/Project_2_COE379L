@@ -11,6 +11,10 @@ docker run -d -p 5000:5000 etmch5341/hurricane-damage-classifier:latest
 
 # Test it
 curl http://localhost:5000/summary
+
+# other option is docker compose (currently setup to use the pulled image)
+# since docker-compose file setup to use the docker hub image
+docker-compose up -d
 ```
 
 ```bash
