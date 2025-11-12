@@ -1,38 +1,32 @@
-### 1. Build the Docker Image
+## How to Run Classifier
 
-Make sure your `best_model.keras` file is in the same directory as the Dockerfile.
+Make sure `best_model.keras` file is in the same directory as the Dockerfile.
 
+### Run using docker run
 ```bash
 # Pull image from Docker Hub
 docker pull etmch5341/hurricane-damage-classifier:latest
 
 # Run it
 docker run -d -p 5000:5000 etmch5341/hurricane-damage-classifier:latest
+# or
+docker run -it --rm -p 5000:5000 etmch5341/hurricane-damage-classifier:latest
 
-# Test it
+# Test summary endpoint
 curl http://localhost:5000/summary
+
+# Test inference endpoint (with an image)
+curl -X POST -F "image=@test_image.jpeg" http://localhost:5000/inference
 
 # Stop it
 docker stop <container_id>
+```
 
+### Run using docker-compose
+```bash
 # other option is docker compose (currently setup to use the pulled image)
 # since docker-compose file setup to use the docker hub image
-docker-compose up -d
-```
 
-```bash
-# Build the image
-docker build -t hurricane-damage-classifier:latest .
-```
-
-```bash
-# Check list of docker images
-docker images
-```
-
-### 2. Run with Docker Compose
-
-```bash
 # Start the container
 docker-compose up -d
 
@@ -42,29 +36,26 @@ docker-compose ps
 # View logs
 docker-compose logs -f
 
+# Test summary endpoint
+curl http://localhost:5000/summary
+
+# Test inference endpoint (with an image)
+curl -X POST -F "image=@test_image.jpeg" http://localhost:5000/inference
+
 # Stop the container
 docker-compose down
 ```
 
-### 2. or run with docker run
+### Building Image
 ```bash
-docker run -it --rm -p 5000:5000 hurricane-damage-classifier:latest
+# Build the image if needed
+docker build -t hurricane-damage-classifier:latest .
 ```
 
-### Full Simple Test workflow
-
+### Checking image list
 ```bash
-# 1. Start container
-docker-compose up -d
-
-# 2. Test summary endpoint
-curl http://localhost:5000/summary
-
-# 3. Test inference endpoint (with an image)
-curl -X POST -F "image=@test_image.jpeg" http://localhost:5000/inference
-
-# 4. View logs if something goes wrong
-docker-compose logs
+# Check list of docker images
+docker images
 ```
 
 ### Test with Grader
