@@ -50,8 +50,6 @@ curl -X POST -F "image=@test_image.jpeg" http://localhost:5000/inference
   "prediction": "damage"
 }
 
-
-
 # Stop it
 docker stop <container_id>
 ```
