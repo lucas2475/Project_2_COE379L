@@ -3,6 +3,17 @@
 Make sure your `best_model.keras` file is in the same directory as the Dockerfile.
 
 ```bash
+# Pull image from Docker Hub
+docker pull etmch5341/hurricane-damage-classifier:latest
+
+# Run it
+docker run -d -p 5000:5000 etmch5341/hurricane-damage-classifier:latest
+
+# Test it
+curl http://localhost:5000/summary
+```
+
+```bash
 # Build the image
 docker build -t hurricane-damage-classifier:latest .
 ```

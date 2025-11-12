@@ -2,7 +2,12 @@ version: '3.8'
 
 services:
   hurricane-damage-classifier:
-    build: .
+    # Build from local Dockerfile
+    # build: .
+
+    # Pull image from Docker Hub
+    image: etmch5341/hurricane-damage-classifier:latest
+    
     container_name: hurricane-damage-inference
     ports:
       - "5000:5000"
