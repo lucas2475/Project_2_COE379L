@@ -1,16 +1,14 @@
 
+# Project 02
+Ethan Chandra, Lucas Shi
 
 ## Project Overview
 
 This project focuses on building and deploying machine-learning models to automatically classify satellite images of buildings affected by Hurricane Harvey as either damage or no_damage. Three models were developed and evaluated: a baseline Dense ANN, a modified LeNet-5 CNN, and a deeper VGG-16 architecture. After training, the best-performing model modified LetNet-5 CNN was packaged into a Flask inference server and deployed using a Docker container, providing REST API endpoints for real-time classification. The project demonstrates the full workflow from data preparation and model development to evaluation and containerized deployment.
 
-
-
 ## How to Run Classifier
 
-Make sure `best_model.keras` file is in the same directory as the Dockerfile.
-
-### Run using docker run
+### Option 1: Run using docker run
 ```bash
 # Pull image from Docker Hub
 docker pull etmch5341/hurricane-damage-classifier:latest
@@ -54,7 +52,7 @@ curl -X POST -F "image=@test_image.jpeg" http://localhost:5000/inference
 docker stop <container_id>
 ```
 
-### Run using docker-compose
+### Option 2: Run using docker-compose
 ```bash
 # other option is docker compose (currently setup to use the pulled image)
 # since docker-compose file setup to use the docker hub image
@@ -91,7 +89,6 @@ docker images
 ```
 
 ### Test with Grader
-
 ```bash
 # 1. Check that container is still running
 docker ps
