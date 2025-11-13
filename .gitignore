@@ -2,3 +2,4 @@
 .venv
 best_model.h5
 old_best_model.keras
+LeNet5_Model_second_best.keras
