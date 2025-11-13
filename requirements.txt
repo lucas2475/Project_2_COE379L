@@ -20,7 +20,7 @@ markdown-it-py==4.0.0
 MarkupSafe==3.0.3
 mdurl==0.1.2
 namex==0.1.0
-numpy==2.3.4
+numpy
 opt_einsum==3.4.0
 optree==0.17.0
 packaging==25.0
